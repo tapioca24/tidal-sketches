@@ -1,0 +1,68 @@
+setcps (150/240)
+
+d1 $
+  stut' 4 (3/16) (|* speed 1.5) $
+  off (1/16) (# accelerate "-1 1") $
+  degradeBy 0.5 $
+  every 3 (slow 2) $
+  every 5 (chop 4) $
+  every 7 (# coarse (irand 64)) $
+  n "0*8"
+  # up (arp "up" "e4'minor'8")
+  # s "bse:48"
+  # sustain (1/16)
+  # shape 0.5
+  # gain 0.8
+  # pan (slow 2 $ sine)
+
+d2 $
+  whenmod 16 15 (spreadr ($) [
+    (# speed 2),
+    ply 2,
+    iter 4,
+    jux rev,
+    shuffle 16,
+    mask "t t t f"
+  ]) $
+  every 5 (chop 4) $
+  whenmod 10 7 (jux (iter 4)) $
+  every 6 (# coarse (irand 64)) $
+  every 7 (# accelerate "-1 1") $
+  every 9 (rip 0.3 16) $
+  stack [
+    n (cat [
+      "0 ~ ~ [~ 0] 0 ~ ~ 0",
+      "0 0 ~ [~ 0] [0 0] [0 0] ~ ~"
+    ])
+    # s "bkick:28"
+    ,
+    n (cat [
+      "~ 0 [~ 0] ~",
+      "[~ 0]*2"
+    ])
+    # s "bsnare:35"
+    ,
+    n "[~ 0]*4"
+    # s "bhh:3"
+    ,
+    sometimesBy 0.5 (slow "[2|4|8]") $
+    n "0*16"
+    # s "bhh:9"
+  ]
+  # shape 0.5
+  # room 0.1
+  # size 0.5
+  # gain 0.9
+
+d3 $
+  n "0"
+  <| up "[0 ~ ~ 0] ~ ~ <~ ~ ~ 1>"
+  |+ up "-2"
+  # s "bbass:47"
+  # hpf 60
+  # hpq 0.3
+  # shape 0.5
+  # room 0.1
+  # size 0.5
+
+hush

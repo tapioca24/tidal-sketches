@@ -1,0 +1,58 @@
+setcps (131/240)
+
+d1 $
+  (+ note "[0 2]/16") $
+  whenmod 16 15 spike $
+  every 3 (chop 4) $
+  whenmod 10 7 (jux (iter 4)) $
+  every 5 (# coarse "8 16 4") $
+  every 7 (# accelerate "-1 1") $
+  every 9 (# crush 3) $
+  stack [
+    note "{0 0 ~}%16"
+    # note (choose [0,3,5])
+    + note "[0,12]"
+    # s "bbass:9"
+    ,
+    note "{0 0 ~}%16"
+    # note (choose [0,3,5])
+    + note "[0,12]"
+    # s "blead:28"
+  ]
+  # sustain (1.2/16)
+  # lpf (range 800 8000 $ slow 8 $ isaw)
+  # shape 0.5
+  # gain "<1 0.8>*16"
+
+d2 $
+  whenmod 8 7 (shuffle 16) $
+  stack [
+    n "0*4"
+    # s "bkick:66"
+    # gain 1.2
+    ,
+    n "[~ 0]*2"
+    # s "bclap:19"
+    ,
+    fast 2 $
+    n "0 ~ ~ 0 0 ~ 0 ~"
+    # s "bperc:18"
+    # sustain (3/16)
+    # gain 0.9
+    ,
+    n "{~ ~ ~ <[0 0] 0>}%8"
+    # s "bperc:8"
+    # gain 0.9
+    ,
+    n "[0 ~ ~ 0] [~ ~ ~ 0] [~ 0 ~ 0] [0 0 ~ 0]"
+    # s "bperc:12"
+    ,
+    n "[~ ~ 0 ~] [~ 0 ~ ~] [~ ~ ~ ~] [~ ~ 0 ~]"
+    # s "bperc:13"
+    ,
+    n "~ [~ 0 ~ ~] ~ [0 ~ ~ 0]"
+    # s "bperc:4"
+  ]
+  # shape 0.5
+
+hush

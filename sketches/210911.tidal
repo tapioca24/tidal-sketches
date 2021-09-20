@@ -1,0 +1,55 @@
+setcps (135/240)
+
+d1 $
+  stack [
+    stut' 4 (1/8) (|* speed 1.02) $
+    off (3/16) (# speed 2) $
+    whenmod 16 8 (# crush 3) $
+    -- whenmod 2 1 (gtfo) $
+    n "<2 2 5 5>"
+    # s "bass3"
+    # sustain (4/16)
+    # shape 0.5
+    # hpf 60
+    # hpq 0.2
+    # gain 0.9
+    ,
+    whenmod 16 15 spike $
+    whenmod 8 7 (shuffle 16) $
+    every 5 (chop "[2|3|4]") $
+    whenmod 7 5 (jux (iter 4)) $
+    every 6 (# coarse "8 4 2") $
+    every 7 (# accelerate "-1 1") $
+    every 9 (rip 0.3 "<8 16>") $
+    stack [
+      n "0*4"
+      # s "ifdrums"
+      # hpf 60
+      # hpq 0.2
+      ,
+      n "~ ~ ~ ~ 0 ~ ~ 0 ~ 0 ~ ~ ~ ~ 0 ~"
+      # s "ifdrums:2"
+      # speed 0.85
+      ,
+      degrade $
+      n "0*16"
+      # s "ifdrums:1"
+      # shape 0.3
+      ,
+      jux (0.25 ~>) $
+      stut 4 0.4 (3/16) $
+      s "cp/3"
+      ,
+      jux rev $
+      degradeBy 0.2 $
+      n (run 16)
+      # s "super808"
+      # gain 0.8
+    ]
+    # lpf (range 500 8000 $ slow 8 $ isaw)
+    # lpq 0.2
+  ]
+  # room 0.3
+  # size 0.7
+
+hush

@@ -1,0 +1,59 @@
+setcps (128/240)
+
+d1 $
+  (+ note "[0 2]/16") $
+  every 6 (# crush 4) $
+  whenmod 10 7 (jux (iter 4)) $
+  every 7 (# coarse "4 8 2") $
+  note "[~ 0 <0!3 3> <0!3 1>]*4"
+  # s "bbass:44"
+  # shape 0.5
+  # lpf (range 500 20000 $ slow 8 $ isaw)
+  # lpq 0.3
+
+d2 $
+  whenmod 16 15 spike $
+  whenmod 8 7 (shuffle 16) $
+  every 9 (chop 4) $
+  whenmod 8 5 (jux (iter 4)) $
+  every 11 (# coarse "8 2 4") $
+  every 15 (# accelerate "-1 1") $
+  every 13 (rip 0.3 8) $
+  stack [
+    n "0*4"
+    # s "bkick:77"
+    ,
+    n "~ 0 ~ 0 ~ 0 ~ [0 0]"
+    # s "bhh:100"
+    ,
+    n "[~!3 [~ <~ 0>]]*2"
+    # s "bhh:47"
+    ,
+    n "[~ 0]*2"
+    # s "bsnare:64"
+    ,
+    mask "[f t]/4" $
+    n "<[~ [~ [~ 0]] ~ ~] [~ [~ ~ ~ 0] [~ 0 ~ ~] [0 ~ 0 0]]>"
+    # s "bsnare:63"
+  ]
+  # shape 0.5
+
+d3 $
+  stack [
+    n "[~ 0]*2"
+    # s "bperc:20"
+    ,
+    mask "[f t]/2" $
+    n "~ ~ ~ [~ ~ ~ 0]"
+    # s "bperc:19"
+    ,
+    mask "[f f f t]/4" $
+    fast 2 $
+    mask "[f t]/2" $
+    n "~ 0 ~ 0 ~ 0 0 0"
+    # s "bperc:57"
+  ]
+  # gain 0.9
+  # shape 0.5
+
+hush
