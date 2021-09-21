@@ -1,4 +1,0 @@
-let gtfo = (const $ s "~")
-    rip decay detail p = within (0.25, 0.75) (slow 2 . rev . stut 8 decay (1/detail)) p
-    spike p = ((#delay 0.3) . (#delaytime (range 0.03 0.003 $ saw)) . (#delayfeedback 0.98)) $ p
-    spike' d p = ((#delay d) . (#delaytime (range 0.03 0.003 $ saw)) . (#delayfeedback 0.98)) $ p

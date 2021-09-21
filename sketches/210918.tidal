@@ -28,7 +28,7 @@ d2 $
   whenmod 10 7 (jux (iter 4)) $
   every 6 (# coarse (irand 64)) $
   every 7 (# accelerate "-1 1") $
-  every 9 (rip 0.3 16) $
+  every 9 (rip 0.3 (1/16)) $
   stack [
     n (cat [
       "0 ~ ~ [~ 0] 0 ~ ~ 0",

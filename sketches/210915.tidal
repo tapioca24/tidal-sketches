@@ -18,7 +18,7 @@ d2 $
   whenmod 8 5 (jux (iter 4)) $
   every 11 (# coarse "8 2 4") $
   every 15 (# accelerate "-1 1") $
-  every 13 (rip 0.3 8) $
+  every 13 (rip 0.3 (1/8)) $
   stack [
     n "0*4"
     # s "bkick:77"

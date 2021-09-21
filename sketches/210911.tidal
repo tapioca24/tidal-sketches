@@ -20,7 +20,7 @@ d1 $
     whenmod 7 5 (jux (iter 4)) $
     every 6 (# coarse "8 4 2") $
     every 7 (# accelerate "-1 1") $
-    every 9 (rip 0.3 "<8 16>") $
+    every 9 (rip 0.3 (1/8)) $
     stack [
       n "0*4"
       # s "ifdrums"
