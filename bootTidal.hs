@@ -74,6 +74,8 @@ import Data.Fixed (mod')
 
 :{
 let
+    setbpm a = setcps (a/60/4)
+
     -- ref. https://qiita.com/s2hap/items/88ab4ebb45882f7b339d
     resetCyclesTo n = T.changeTempo (sTempoMV tidal) (\t tempo -> tempo {T.atTime = t, T.atCycle = n})
 
