@@ -12,12 +12,12 @@ d1 $
     note "{0 0 ~}%16"
     # note (choose [0,3,5])
     + note "[0,12]"
-    # s "bbass:9"
+    # s "bba:9"
     ,
     note "{0 0 ~}%16"
     # note (choose [0,3,5])
     + note "[0,12]"
-    # s "blead:28"
+    # s "ble:28"
   ]
   # sustain (1.2/16)
   # lpf (range 800 8000 $ slow 8 $ isaw)
@@ -28,30 +28,30 @@ d2 $
   whenmod 8 7 (shuffle 16) $
   stack [
     n "0*4"
-    # s "bkick:66"
+    # s "bkk:66"
     # gain 1.2
     ,
     n "[~ 0]*2"
-    # s "bclap:19"
+    # s "bcp:19"
     ,
     fast 2 $
     n "0 ~ ~ 0 0 ~ 0 ~"
-    # s "bperc:18"
+    # s "bpe:18"
     # sustain (3/16)
     # gain 0.9
     ,
     n "{~ ~ ~ <[0 0] 0>}%8"
-    # s "bperc:8"
+    # s "bpe:8"
     # gain 0.9
     ,
     n "[0 ~ ~ 0] [~ ~ ~ 0] [~ 0 ~ 0] [0 0 ~ 0]"
-    # s "bperc:12"
+    # s "bpe:12"
     ,
     n "[~ ~ 0 ~] [~ 0 ~ ~] [~ ~ ~ ~] [~ ~ 0 ~]"
-    # s "bperc:13"
+    # s "bpe:13"
     ,
     n "~ [~ 0 ~ ~] ~ [0 ~ ~ 0]"
-    # s "bperc:4"
+    # s "bpe:4"
   ]
   # shape 0.5
 
