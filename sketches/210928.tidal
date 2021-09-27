@@ -1,0 +1,102 @@
+setbpm 135
+
+d1
+  $ whenmod 16 15 (# lpf 800)
+  $ whenmod 23 17 (jux (iter 4))
+  $ whenmod 16 15 (shuffle 16)
+  $ every 5 (ply 2)
+  $ every 7 (chop 4)
+  $ every 9 (# accelerate "<0.5 -0.5 0.25 -0.25>")
+  $ stack [
+    sometimesBy 0.5 (|* speed 0.5)
+    $ stut' 16 (1/32) ((|* speed 1.5) . (|* gain 0.98))
+    $ every 2 (chop 4)
+    $ every 3 (# crush 1)
+    $ degradeBy 0.8
+    $ struct (binary "<231 94 3 182 49 137>")
+    $ s "bkk:40"
+    # legato "0.5"
+    # pan square
+    ,
+    n "0 ~ ~ ~ ~ 0 ~ ~"
+    # s "bkk:59"
+    |* gain 1.1
+    ,
+    sometimesBy 0.5 (fast 2)
+    $ struct (binary "<39 12 149 249 9 84 233>")
+    $ s "bhh:31"
+    ,
+    n "[~ [0 0?]]*4"
+    # s "bhh:104"
+    # legato 1
+    ,
+    struct (binary "<32 94 129 249 211>")
+    $ s "bsn"
+    # n (irand 100)
+    # legato "0.8 0.2"
+    ,
+    n "[~ 0]*2"
+    # s "bsn:63"
+    ,
+    sometimesBy 0.4 (# speed "-1")
+    $ struct (binary "<98 42 194 2 31>")
+    $ s "bpe"
+    # n (irand 100)
+    # legato 1
+    # pan rand
+    |* gain 0.9
+    ,
+    whenmod 4 1 gtfo
+    $ stut' 4 (3/16) ((|* speed 0.8) . (|* gain 0.75))
+    $ n "0"
+    # s "bcp:8"
+  ]
+  # shape 0.5
+  # lpf (range 2000 5000 $ slow 8.48 sine) # lpq 0.3
+  # room 0.2 # size (range 0.2 0.7 $ slow 7.3 sine)
+  |* gain 0.95
+
+d2
+  $ whenmod 16 15 gtfo
+  $ (|+ note "[0 -5 -8]/24")
+  $ sometimesBy 0.4 (|+ note "<7 12 19>")
+  $ every 3 (|+ note "12")
+  $ sometimesBy 0.7 (fast 2)
+  $ off (1/4) (|+ note "12")
+  $ note "0(6,8,<0 4 3 2>)"
+  # s "bba:36"
+  |+ note "7"
+  # shape 0.5
+  # room 0.2 # size 0.7
+
+d3
+  $ (|+ note "[0 -5 -8]/24")
+  $ whenmod 15 5 (jux ((1/16) ~>))
+  $ every 7 (# crush 3)
+  $ sometimesBy 0.1 (slow 1.5)
+  $ fast 2
+  $ whenmod 4 2 rev
+  $ whenmod 6 3 (|+ note "-12")
+  $ every 2 (|+ note "-12")
+  $ arp "down"
+  $ note "c'sus4'12"
+  # s "ble:20"
+  |+ note "5"
+  # legato "[1|0.8|0.6]"
+  # lpf (range 1000 8000 $ slow 9.4 sine) # lpq 0.2
+  # shape 0.5
+  # room 0.2 # size 0.7
+  |* gain 0.85
+
+d4
+  $ whenmod 16 15 gtfo
+  $ (|+ note "[0 -5 -8]/24")
+  $ jux ((1/32) ~>)
+  $ note "c'sus4/4"
+  # s "bpd:6"
+  |+ note "4"
+  # legato 1
+  # room 0.2 # size 0.7
+  |* gain 0.95
+
+hush

@@ -1,0 +1,86 @@
+setbpm 168
+
+p "dr"
+  $ whenmod 10 7 (jux (iter 4))
+  $ every 5 (chop "[2|4]")
+  $ every 7 (# coarse "24 32 16")
+  $ every 9 (# accelerate "-1 1")
+  $ every 11 (rip 0.5 (1/16))
+  $ whenmod 8 7 (while "t" (spreadr ($) [
+    shuffle 16,
+    ply 2
+  ]))
+  $ stack [
+    ""
+    , struct (binary 0x84) $ s "bkk:28"
+    , n "[~ 0]*2" # s "bsn:9"
+    , n "0*8" # s "bhh:29" |* gain 0.8
+    , struct (binary 0x5a) $ s "bhh:17" |* gain 0.9
+    , struct (binaryN 16 0x40) $ s "bpe:96"
+    , struct (binaryN 16 0x100) $ s "bpe:69"
+    , sometimesBy 0.2 (# speed 0.5) $ struct (binary 1) $ s "bpe:12" |* gain 0.9
+  ]
+  # shape 0.5
+  # room 0.3
+  # size 0.7
+  |* gain 1.1
+
+p "ba"
+  $ stut 3 0.5 (2/16)
+  $ off (3/16) (|+ note "12")
+  $ note "0(3,8)"
+  # s "bba:34"
+  + note (slow 2 $ cat ["5", "7", "9", "0"])
+  + note "-4"
+  # hpf 60
+  # hpq 0.3
+  # shape 0.5
+  # room 0.3
+  # size 0.7
+  |* gain 0.9
+
+p "synth"
+  $ every 3 (+ note "12")
+  $ every 5 (+ note "-12")
+  $ iter 4
+  $ (+ note "-12")
+  $ note (arp "up down" (cat [
+    "f'maj'16",
+    "f'maj'16",
+    "g'maj'16",
+    "g'maj'16",
+    "a'min'16",
+    "a'min'16",
+    "c'maj'16",
+    "c'maj'16"
+  ]))
+  # s "ble:7"
+  + note "0"
+  # legato 1
+  # lpf 3000
+  # lpq 0.3
+  # shape 0.5
+  # room 0.3
+  # size 0.7
+  |* gain 0.9
+
+p "pad"
+  $ jux (iter 8)
+  $ off (3/8) (+ note "12")
+  $ note (iter 8 "0(9,16)")
+  + note (slow 2 $ cat [
+    "f'maj",
+    "g'maj",
+    "a'min9",
+    "c'maj7"
+  ])
+  + note "6"
+  # s "ble:16"
+  # sustain (3/32)
+  # lpf (range 1000 8000 $ slow 8 $ sine)
+  # lpq 0.3
+  # room 0.3
+  # size 0.7
+  |* gain 0.9
+
+hush
