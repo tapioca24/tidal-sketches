@@ -65,7 +65,6 @@ d2
   $ off (1/4) (|+ note "12")
   $ note "0(6,8,<0 4 3 2>)"
   # s "bba:36"
-  |+ note "7"
   # shape 0.5
   # room 0.2 # size 0.7
 
@@ -81,7 +80,7 @@ d3
   $ arp "down"
   $ note "c'sus4'12"
   # s "ble:20"
-  |+ note "5"
+  |+ note "12"
   # legato "[1|0.8|0.6]"
   # lpf (range 1000 8000 $ slow 9.4 sine) # lpq 0.2
   # shape 0.5
@@ -94,7 +93,6 @@ d4
   $ jux ((1/32) ~>)
   $ note "c'sus4/4"
   # s "bpd:6"
-  |+ note "4"
   # legato 1
   # room 0.2 # size 0.7
   |* gain 0.95

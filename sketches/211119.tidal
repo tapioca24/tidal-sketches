@@ -1,0 +1,121 @@
+setbpm 128
+
+d1
+  $ n "0 ~ ~ [0 0] ~ [~ 0] ~ 0"
+  # s "bba:6"
+  |+ up "0 1"
+  # legato 1
+  # shape 0.5
+  # room 0.5
+  # size 0.7
+  |* gain 0.9
+
+d3
+  $ n "<0 ~ ~ ~> ~ ~ ~ ~ ~ ~ <~ ~ ~ 0>"
+  # s "bpe:38"
+  # speed 0.8
+  # shape 0.5
+  # room 0.2
+  # size 0.7
+  |* gain 1.2
+
+d2
+  $ n "0*4"
+  # s "bdr3"
+  # shape 0.5
+  # room 0.2
+  # size 0.7
+
+d2
+  $ stack [
+    ""
+    , n "0*4"
+    , n "[~ 3]*4"
+  ]
+  # s "bdr3"
+  # shape 0.5
+  # room 0.2
+  # size 0.7
+
+d2
+  $ stack [
+    ""
+    , n "0*4"
+    , n "[~ 3]*4"
+    , n "1*16" # gain 0.7
+  ]
+  # s "bdr3"
+  # shape 0.5
+  # room 0.2
+  # size 0.7
+
+d2
+  $ stack [
+    ""
+    , n "0*4"
+    , n "[~ 3]*4"
+    , n "1*16" # gain 0.7
+    , n "[<~ ~ ~ [~ 2 ~ ~]> <2 2 2 <2 [2 2 ~ ~]>>]*2"
+  ]
+  # s "bdr3"
+  # shape 0.5
+  # room 0.2
+  # size 0.7
+
+d2
+  $ stack [
+    ""
+    , n "0*4"
+    , n "[~ 3]*4"
+    , n "1*16" # gain 0.7
+    , n "[<~ ~ ~ [~ 2 ~ ~]> <2 2 2 <2 [2 2 ~ ~]>>]*2"
+    , stut' 5 (3/16) (|* gain 0.9) $ n "4/4" |* gain 0.8
+  ]
+  # s "bdr3"
+  # shape 0.5
+  # room 0.2
+  # size 0.7
+
+d4
+  $ whenmod' 4 3 (mask "f")
+  $ n "~ ~ [~ 0 0 ~] 0"
+  # s "bse:76"
+  # legato 1
+  # shape 0.5
+  # room 0.2
+  # size 0.7
+
+d1
+  $ off (3/16) (|+ up (scale "minor" "<7 7 7 [11 [10 11]]>"))
+  $ n "0 ~ ~ [0 0] ~ [~ 0] ~ 0"
+  # s "bba:6"
+  |+ up "0 1"
+  # legato 1
+  # shape 0.5
+  # room 0.5
+  # size 0.7
+  |* gain 0.9
+
+d2
+  $ whenmod 16 15 spike
+  $ whenmod 8 7 (shuffle 16)
+  $ whenmod 13 8 (jux (iter 4))
+  $ every 3 (chop 4)
+  $ every 5 (# coarse "8 2 4")
+  $ every 7 (# accelerate "-1 1")
+  $ every 9 (rip 0.3 (1/8))
+  $ every 11 (ply "1 1 1 6")
+  $ stack [
+    ""
+    , n "0*4"
+    , n "[~ 3]*4"
+    , n "1*16" # gain 0.7
+    , n "[<~ ~ ~ [~ 2 ~ ~]> <2 2 2 <2 [2 2 ~ ~]>>]*2"
+    , stut' 5 (3/16) (|* gain 0.9) $ n "4/4" |* gain 0.8
+  ]
+  # s "bdr3"
+  # shape 0.5
+  # room 0.2
+  # size 0.7
+
+hush

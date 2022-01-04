@@ -31,7 +31,6 @@ p "ba"
   $ note "0(3,8)"
   # s "bba:34"
   + note (slow 2 $ cat ["5", "7", "9", "0"])
-  + note "-4"
   # hpf 60
   # hpq 0.3
   # shape 0.5
@@ -74,7 +73,7 @@ p "pad"
     "a'min9",
     "c'maj7"
   ])
-  + note "6"
+  -- + note "6"
   # s "ble:16"
   # sustain (3/32)
   # lpf (range 1000 8000 $ slow 8 $ sine)
